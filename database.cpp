@@ -1,15 +1,13 @@
 #include "database.h"
 
 DataBase::DataBase(QObject *parent) : QObject(parent)
-{
-
-}
+{ }
 
 bool DataBase::openDataBase()
 {
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setHostName("QSQLITE");
-    db.setDatabaseName("C:\\Users\\Vitaly\\Documents\\QTProjects\\QtGoldApp\\gold.db");
+    db.setDatabaseName("..\\QtGoldApp\\gold.db");
     if(db.open()){
         return true;
     } else {

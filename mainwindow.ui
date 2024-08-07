@@ -14,26 +14,13 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>10</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
    <widget class="QTableView" name="tableView">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>541</width>
-      <height>511</height>
+      <x>0</x>
+      <y>0</y>
+      <width>561</width>
+      <height>581</height>
      </rect>
     </property>
    </widget>
@@ -48,7 +35,11 @@
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <action name="connectAction">
+   <property name="text">
+    <string>Connect</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

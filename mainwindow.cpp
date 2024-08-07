@@ -8,28 +8,24 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    db = new DataBase();
-    db->openDataBase();
-
-    model = new QSqlTableModel(this);
-    model->setTable("gold");
-
-
-    ui->tableView->setModel(model);
-
-    model->select();
-
-    ui->tableView->setItemDelegateForColumn(2, new CustomDelegate(this));
-    ui->tableView->setColumnWidth(0, 150);
+    QAction *connectAction = new QAction("Connect", ui->menubar);
+    connect(connectAction, SIGNAL(triggered()), this, SLOT(dbAction()));
+    ui->menubar->addAction(connectAction);
 }
 
 MainWindow::~MainWindow()
 {
+    db->closeDataBase();
     delete ui;
 }
 
-
-void MainWindow::on_pushButton_clicked()
-{
-
+void MainWindow::dbAction(){
+    db = new DataBase();
+    db->openDataBase();
+    QSqlTableModel* model = new QSqlTableModel(this);
+    model->setTable("gold");
+    ui->tableView->setModel(model);
+    ui->tableView->setItemDelegateForColumn(2, new CustomDelegate(this));
+    ui->tableView->setColumnWidth(0, 150);
+    model->select();
 }
